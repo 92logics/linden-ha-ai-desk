@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>92 Logics prototype · Linden Housing Authority desk</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to the desk</a>
+  <div class="banner" role="note">
+    <strong>92 Logics prototype.</strong>
+    Not the Linden Housing Authority’s live system, not connected to any resident file, and not a bid or proposal.
+  </div>
+
+  <header class="top">
+    <div class="brand">
+      <span class="mark" aria-hidden="true">92</span>
+      <div>
+        <p class="eyebrow">92 Logics · Islamabad · scripted demo</p>
+        <h1>Linden desk</h1>
+      </div>
+    </div>
+    <p class="lede">A clickable resident and staff assistant for the Housing Authority of the City of Linden opportunity. Every answer is limited to the public RFP advertisement and the authority pages fetched for this demo. If those sources disagree, the desk says so and points to a person.</p>
+  </header>
+
+  <div class="shell">
+    <aside class="rail" aria-label="Demo controls">
+      <fieldset class="modes">
+        <legend>Who is using the desk</legend>
+        <label class="mode"><input type="radio" name="mode" value="resident" checked> Resident</label>
+        <label class="mode"><input type="radio" name="mode" value="staff"> Staff</label>
+      </fieldset>
+
+      <div id="resident-nav">
+        <p class="rail-label">Try a scripted question</p>
+        <div class="chips" id="chips"></div>
+      </div>
+
+      <div id="staff-nav" hidden>
+        <p class="rail-label">Scripted inbox</p>
+        <p class="fine">Sample messages only. Nothing here is a real resident, and nothing is sent.</p>
+        <ul class="inbox" id="inbox"></ul>
+      </div>
+    </aside>
+
+    <main id="main">
+      <section id="resident-view" aria-label="Resident assistant">
+        <div class="thread" id="thread" aria-live="polite"></div>
+        <form id="composer" class="composer">
+          <label class="sr" for="ask">Ask the prototype</label>
+          <textarea id="ask" rows="2" placeholder="Ask about a repair, an application, documents, or when to call the office."></textarea>
+          <button type="submit">Answer from sources</button>
+        </form>
+        <p class="fine composer-note">Runs in this browser only. No account, no network call, no work order created.</p>
+      </section>
+
+      <section id="staff-view" hidden aria-label="Staff operational desk">
+        <article class="ticket" id="ticket">
+          <p class="fine">Select a sample message.</p>
+        </article>
+        <label class="sr" for="reply">Suggested reply</label>
+        <textarea id="reply" rows="8" readonly></textarea>
+        <div class="staff-actions">
+          <button type="button" id="copy-reply">Copy reply</button>
+          <button type="button" id="handoff" class="ghost">Mark as handed to a person</button>
+          <span id="copy-status" class="fine" role="status"></span>
+        </div>
+      </section>
+    </main>
+
+    <aside class="facts" aria-label="What this demo knows">
+      <h2>What the AI work is</h2>
+      <p>The published advertisement asks for <strong>AI automation, resident communication, and operational support services</strong>. It does not describe channels, systems, or a statement of work. Those RFP documents sit behind login on the Housing Agency Marketplace.</p>
+      <dl>
+        <div><dt>Buyer</dt><dd>Housing Authority of the City of Linden</dd></div>
+        <div><dt>Notice contact</dt><dd>Dr. Marlena Berghammer, Executive Director</dd></div>
+        <div><dt>Proposals due</dt><dd>9 October 2026, 2:30 p.m. (zone not printed)</dd></div>
+        <div><dt>Questions were due</dt><dd>21 September 2026, 3:30 p.m.</dd></div>
+        <div><dt>How to submit</dt><dd>Portal only. No hard copies.</dd></div>
+      </dl>
+      <h2>This desk will not</h2>
+      <ul>
+        <li>Look up a household, rent charge, or waitlist position</li>
+        <li>Open, close, or file an application</li>
+        <li>Create a maintenance work order</li>
+        <li>Invent a policy when the notice or the site is silent or in conflict</li>
+      </ul>
+    </aside>
+  </div>
+
+  <footer>
+    <p>Prototype by 92 Logics · cowork@92logics.com · not an official housing authority system.</p>
+  </footer>
+  <noscript><p class="banner">This prototype needs JavaScript in the browser. It still does not call any server.</p></noscript>
+  <script src="js/app.js"></script>
+</body>
+</html>

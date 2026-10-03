@@ -1,0 +1,244 @@
+:root {
+  --ink: #1c1915;
+  --muted: #5c564c;
+  --paper: #f3efe6;
+  --card: #fffdf8;
+  --line: #e2d9c9;
+  --teal: #143e3a;
+  --teal-2: #1f5c56;
+  --brass: #8d5a28;
+  --alert: #7c2d2d;
+  --alert-bg: #f8ece6;
+  --ok-bg: #e7f0ea;
+  --shadow: 0 10px 30px rgba(28, 25, 21, 0.06);
+  --serif: Georgia, "Iowan Old Style", Palatino, "Palatino Linotype", serif;
+  --sans: "Segoe UI", system-ui, sans-serif;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  color: var(--ink);
+  background:
+    radial-gradient(1200px 400px at 10% -10%, #efe4d2 0%, transparent 55%),
+    var(--paper);
+  font-family: var(--sans);
+  font-size: 16px;
+  line-height: 1.5;
+}
+.skip {
+  position: absolute;
+  left: -999px;
+  top: 0;
+  background: #fff;
+  padding: 0.5rem 1rem;
+}
+.skip:focus { left: 0.5rem; top: 0.5rem; z-index: 5; }
+.sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+.banner {
+  background: var(--teal);
+  color: #f6f1e7;
+  padding: 0.65rem 1.25rem;
+  text-align: center;
+  font-size: 0.95rem;
+}
+.banner strong { font-weight: 650; }
+.top {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 1.5rem 1.25rem 0.5rem;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1.25rem 1.75rem;
+  align-items: end;
+}
+.brand { display: flex; gap: 0.85rem; align-items: center; }
+.mark {
+  width: 3rem;
+  height: 3rem;
+  display: grid;
+  place-items: center;
+  background: var(--ink);
+  color: #f3efe6;
+  font-family: var(--serif);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+}
+.eyebrow {
+  margin: 0;
+  color: var(--brass);
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+h1 {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: 2.1rem;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+.lede {
+  margin: 0;
+  color: var(--muted);
+  max-width: 62ch;
+}
+.shell {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 1rem 1.25rem 2rem;
+  display: grid;
+  grid-template-columns: 240px minmax(0, 1fr) 280px;
+  gap: 1rem;
+  align-items: start;
+}
+.rail, .facts, #resident-view, #staff-view, .ticket {
+  background: var(--card);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+}
+.rail, .facts { padding: 1rem; }
+.modes {
+  border: 0;
+  margin: 0 0 1rem;
+  padding: 0;
+  display: grid;
+  gap: 0.4rem;
+}
+.modes legend, .rail-label, .facts h2 {
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 0 0 0.45rem;
+}
+.mode {
+  display: flex;
+  gap: 0.45rem;
+  align-items: center;
+  padding: 0.45rem 0.55rem;
+  border: 1px solid var(--line);
+  background: #fff;
+}
+.chips, .inbox { display: grid; gap: 0.4rem; }
+.chips button, .inbox button, .staff-actions button, .composer button {
+  font: inherit;
+  cursor: pointer;
+}
+.chips button, .inbox button {
+  text-align: left;
+  background: #fff;
+  border: 1px solid var(--line);
+  padding: 0.5rem 0.6rem;
+  color: var(--ink);
+}
+.chips button:hover, .inbox button:hover,
+.chips button:focus-visible, .inbox button:focus-visible {
+  border-color: var(--teal-2);
+  outline: 2px solid transparent;
+}
+.inbox button[aria-current="true"] {
+  background: #eef4f3;
+  border-color: var(--teal-2);
+}
+.fine { color: var(--muted); font-size: 0.85rem; margin: 0 0 0.6rem; }
+#main { min-width: 0; }
+#resident-view, #staff-view { padding: 0.85rem; }
+.thread {
+  min-height: 340px;
+  max-height: 540px;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 0.35rem;
+}
+.msg {
+  max-width: 92%;
+  padding: 0.75rem 0.85rem;
+  border: 1px solid var(--line);
+}
+.msg.user {
+  align-self: flex-end;
+  background: var(--teal);
+  color: #f6f1e7;
+  border-color: var(--teal);
+}
+.msg.bot { align-self: flex-start; background: #fff; }
+.msg p { margin: 0 0 0.55rem; }
+.msg p:last-child { margin-bottom: 0; }
+.msg ul { margin: 0.2rem 0 0.55rem; padding-left: 1.1rem; }
+.tag {
+  display: inline-block;
+  margin: 0.15rem 0.25rem 0 0;
+  padding: 0.1rem 0.4rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.02em;
+  background: #f3efe6;
+  color: var(--ink);
+}
+.msg.warn { border-color: #e2c2b6; background: var(--alert-bg); }
+.handoff {
+  font-size: 0.82rem;
+  font-weight: 650;
+  color: var(--alert);
+  margin-bottom: 0.35rem;
+}
+.composer { display: grid; grid-template-columns: 1fr auto; gap: 0.5rem; margin-top: 0.6rem; }
+textarea {
+  font: inherit;
+  width: 100%;
+  resize: vertical;
+  padding: 0.65rem 0.7rem;
+  border: 1px solid var(--line);
+  background: #fff;
+  color: var(--ink);
+}
+.composer button, .staff-actions button {
+  background: var(--ink);
+  color: #f6f1e7;
+  border: 1px solid var(--ink);
+  padding: 0.55rem 0.8rem;
+}
+.staff-actions { display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center; margin-top: 0.55rem; }
+.ghost { background: #fff !important; color: var(--ink) !important; }
+.ticket { padding: 0.85rem; margin-bottom: 0.65rem; box-shadow: none; }
+.ticket h3 { margin: 0 0 0.35rem; font-family: var(--serif); font-size: 1.25rem; }
+.kicker { margin: 0 0 0.35rem; font-size: 0.78rem; letter-spacing: 0.05em; text-transform: uppercase; color: var(--brass); }
+.facts dl { margin: 0 0 0.8rem; }
+.facts dl div { margin-bottom: 0.45rem; }
+.facts dt { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); }
+.facts dd { margin: 0; }
+.facts ul { margin: 0; padding-left: 1.1rem; }
+.facts li { margin: 0.25rem 0; }
+footer {
+  border-top: 1px solid var(--line);
+  padding: 1rem 1.25rem 1.4rem;
+  text-align: center;
+  color: var(--muted);
+}
+footer p { margin: 0; }
+button:focus-visible, textarea:focus-visible, input:focus-visible {
+  outline: 2px solid var(--brass);
+  outline-offset: 2px;
+}
+@media (max-width: 1040px) {
+  .shell { grid-template-columns: 220px minmax(0, 1fr); }
+  .facts { grid-column: 1 / -1; }
+}
+@media (max-width: 760px) {
+  .top, .shell { grid-template-columns: 1fr; }
+  .composer { grid-template-columns: 1fr; }
+  .thread { max-height: none; }
+}
